@@ -1,0 +1,24 @@
+# this file contains the social media links and usernames of the author
+# the commented lines are the default social media links supported by the template
+# the socials will be displayed in the order they are defined here
+
+googlescholar: 
+  link: https://scholar.google.com/citations?user=ITrKghgAAAAJ&hl=en
+  name: Google Scholar
+# semanticscholar: 
+#   link: https://www.semanticscholar.org/author/Anja-Surina/2320805568
+#   name: Semantic Scholar
+github: 
+  link: https://github.com/aanjaa
+  name: GitHub
+linkedin: 
+  link: https://www.linkedin.com/in/anja-surina/
+  name: LinkedIn
+twitter:
+  link: https://x.com/AnjaSurina
+  name: Twitter
+email:
+  name: "anja [d.o.t] surina [a.t] epfl [d.o.t] ch"
+# cv:
+#   link: "/assets/pdf/anja-surina-cv.pdf"
+#   name: "CV - updated Nov 2025"

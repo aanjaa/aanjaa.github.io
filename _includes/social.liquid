@@ -1,0 +1,32 @@
+{% assign social_list = site.data.socials %}
+
+<ul class="contact-list">
+  <li>
+    <i class="fas fa-envelope-open-text"></i>
+    {{ social_list.email.name }}
+  </li>
+  <li>
+    <i class="fas fa-graduation-cap"></i>
+    <a href="{{ social_list['googlescholar'].link }}">{{ social_list['googlescholar'].name }}</a>
+  </li>
+  <li>
+    <i class="ai ai-semantic-scholar"></i>
+    <a href="{{ social_list['semanticscholar'].link }}">{{ social_list['semanticscholar'].name }}</a>
+  </li>
+  <li>
+    <i class="fab fa-github"></i>
+    <a href="{{ social_list.github.link }}">{{ social_list.github.name }}</a>
+  </li>
+  <li>
+    <i class="fab fa-linkedin"></i>
+    <a href="{{ social_list.linkedin.link }}">{{ social_list.linkedin.name }}</a>
+  </li>
+  <li>
+    <i class="fab fa-twitter"></i>
+    <a href="{{ social_list.twitter.link }}">{{ social_list.twitter.name }}</a>
+  </li>
+  <li>
+    <i class="fas fa-file"></i>
+    <a href="{{ social_list.cv.link }}">{{ social_list.cv.name }}</a>
+  </li>
+</ul>
