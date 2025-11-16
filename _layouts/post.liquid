@@ -60,10 +60,8 @@ layout: default
 
   <article class="post-content">
     {% if page.toc and page.toc.beginning %}
-      <div id="table-of-contents">
-        {% toc %}
-      </div>
-      <hr>
+      <!-- Table of contents placeholder. Generated via plugin or left empty if plugin not available. -->
+      <!-- {% toc %} -->
     {% endif %}
     <div id="markdown-content">
       {{ content }}
