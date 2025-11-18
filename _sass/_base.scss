@@ -217,16 +217,19 @@ ul.task-list input[type="checkbox"] {
 
 .about-layout {
   display: flex;
-  flex-direction: column;
+  flex-direction: column;  /* stack on mobile */
   gap: 2rem;
+}
+
+/* MOBILE: profile first, content second */
+.about-profile {
+  width: 100%;
+  order: 1;
 }
 
 .about-main {
   flex: 1 1 auto;
-}
-
-.about-profile {
-  width: 100%;
+  order: 2;
 }
 
 @media (min-width: 768px) {
@@ -235,15 +238,19 @@ ul.task-list input[type="checkbox"] {
     align-items: flex-start;
   }
 
+  /* DESKTOP: content left, profile right */
   .about-main {
     min-width: 0;
+    order: 1;
   }
 
   .about-profile {
     flex: 0 0 30%;
     max-width: 320px;
+    order: 2;
   }
 }
+
 
 @media (min-width: 576px) {
   .profile {
