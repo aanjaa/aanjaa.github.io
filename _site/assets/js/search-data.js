@@ -19,22 +19,15 @@ ninja.data = [{
         },{id: "news-started-as-a-student-researcher-at-google-deepmind-in-london",
           title: 'Started as a Student Researcher at Google Deepmind in London',
           description: "",
-          section: "News",},{id: "news-presented-our-evotune-paper-at-colm-2025-in-montreal-ca",
-          title: 'Presented our EvoTune paper at COLM 2025 in Montreal, CA',
+          section: "News",},{id: "news-presented-our-evotune-paper-at-colm-2025-in-montreal",
+          title: 'Presented our EvoTune paper at COLM 2025 in Montreal.',
           description: "",
-          section: "News",},{id: "news-selected-for-forbed-30u30-in-slovenia-in-science-amp-amp-tech",
-          title: 'Selected for Forbed 30u30 in Slovenia in Science&amp;amp;amp;Tech!',
+          section: "News",},{id: "news-selected-for-forbes-30u30-in-slovenia-in-science-amp-amp-tech-category",
+          title: 'Selected for Forbes 30u30 in Slovenia in Science&amp;amp;amp;Tech category!',
           description: "",
           section: "News",},{
         id: 'social-googlescholar',
         title: 'Googlescholar',
-        section: 'Socials',
-        handler: () => {
-          window.open("", "_blank");
-        },
-      },{
-        id: 'social-semanticscholar',
-        title: 'Semanticscholar',
         section: 'Socials',
         handler: () => {
           window.open("", "_blank");
@@ -65,14 +58,7 @@ ninja.data = [{
         title: 'email',
         section: 'Socials',
         handler: () => {
-          window.open("mailto:{"%6E%61%6D%65"=>"%61%6E%6A%61 [%64.%6F.%74] %73%75%72%69%6E%61 [%61.%74] %65%70%66%6C [%64.%6F.%74] %63%68"}", "_blank");
-        },
-      },{
-        id: 'social-cv',
-        title: 'Cv',
-        section: 'Socials',
-        handler: () => {
-          window.open("", "_blank");
+          window.open("mailto:{"%6E%61%6D%65" => "%61%6E%6A%61 [%64.%6F.%74] %73%75%72%69%6E%61 [%61.%74] %65%70%66%6C [%64.%6F.%74] %63%68"}", "_blank");
         },
       },{
       id: 'light-theme',
