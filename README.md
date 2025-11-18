@@ -1,3 +1,16 @@
+# tldr
+
+for mac:
+```shell
+brew install imagemagick
+
+bundle install
+
+pip install jupyter
+
+bundle exec jekyll serve
+```
+
 # al-folio
 
 <div align="center">
