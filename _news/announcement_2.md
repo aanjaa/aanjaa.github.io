@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Presented EvoTune paper at COLM 2025 in Montreal.
+Presented Algorithm Discovery With LLMs paper at COLM 2025 in Montreal.

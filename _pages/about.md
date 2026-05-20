@@ -16,6 +16,6 @@ announcements:
   limit: 5 # leave blank to include all the news in the `_news` folder
 ---
 
-I am a PhD student at [EPFL](https://www.epfl.ch/schools/ic/) advised by [Prof. Caglar Gulcehre](https://www.caglar.ai/). My research work focuses on scientific discovery with AI and LLM cognition.
+I am a PhD student at [EPFL](https://www.epfl.ch/schools/ic/) advised by [Prof. Caglar Gulcehre](https://www.caglar.ai/). My research focuses on using LLMs for mathematical and scientific discovery, and on understanding the nature of their intelligence.
 
-I have previously interned at [Google DeepMind](https://deepmind.google/), [Prof. Yoshua Bengio](https://yoshuabengio.org/en)'s lab at [Mila](https://mila.quebec/en), [Prof. Jure Leskovec](https://cs.stanford.edu/people/jure/)'s lab at [Stanford](https://www.stanford.edu/), and [IBM Research]() in Zurich. I received my MSc degree in Neural Systems and Computation from [ETH Zurich](https://ethz.ch/en.html) and my BSc degree from the [University of Ljubljana](https://fe.uni-lj.si/en/).
+I have previously interned at [Google DeepMind](https://deepmind.google/), [Prof. Yoshua Bengio](https://yoshuabengio.org/en)'s lab at [Mila](https://mila.quebec/en), [Prof. Jure Leskovec](https://cs.stanford.edu/people/jure/)'s lab at [Stanford](https://www.stanford.edu/), and [IBM Research]() in Zurich. I received my MSc degree in Neural Systems and Computation from [ETH Zurich](https://ethz.ch/en.html) and my BSc degree in Electrical Engineering from the [University of Ljubljana](https://fe.uni-lj.si/en/).

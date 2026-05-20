@@ -8,7 +8,7 @@ layout: default
     <h1 class="post-title">
       {% if site.title == 'blank' %}
         <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
+        <span class="font-weight-bold">{{ site.last_name }}</span>
       {% else %}
         {{ site.title }}
       {% endif %}
@@ -23,14 +23,12 @@ layout: default
         {{ content }}
 
         {% if page.announcements and page.announcements.enabled %}
-          <h2>
-            <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
-          </h2>
+          <h2>News</h2>
           {% include news.liquid limit=true %}
         {% endif %}
 
         {% if page.publications %}
-          <h2>publications</h2>
+          <h2>Publications</h2>
           <div class="publications">
             {% bibliography %}
           </div>

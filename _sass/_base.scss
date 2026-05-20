@@ -245,8 +245,8 @@ ul.task-list input[type="checkbox"] {
   }
 
   .about-profile {
-    flex: 0 0 30%;
-    max-width: 320px;
+    flex: 0 0 15%;
+    max-width: 160px;
     order: 2;
   }
 }
@@ -859,6 +859,19 @@ footer.sticky-bottom {
         a.award.btn {
           border-color: var(--global-highlight-color);
         }
+        span.award-label.btn {
+          color: var(--global-highlight-color);
+          border: 1px solid var(--global-highlight-color);
+          background-color: transparent;
+          padding-left: 1rem;
+          padding-right: 1rem;
+          padding-top: 0.25rem;
+          padding-bottom: 0.25rem;
+          margin-left: 0;
+          cursor: default;
+          font-weight: 600;
+          pointer-events: none;
+        }
       }
 
       .badges {
@@ -1215,6 +1228,11 @@ ninja-keys::part(ninja-input) {
 
 ninja-keys::part(ninja-input-wrapper) {
   background: var(--global-bg-color);
+}
+
+// news
+.news th {
+  font-weight: normal;
 }
 
 // newsletter
