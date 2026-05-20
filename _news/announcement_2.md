@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Presented our EvoTune paper at COLM 2025 in Montreal.
+Presented EvoTune paper at COLM 2025 in Montreal.

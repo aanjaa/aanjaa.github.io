@@ -5,7 +5,7 @@
 title: blank # the website title (if blank, full name will be used instead)
 first_name: Anja
 middle_name: 
-last_name: Šurina
+last_name: Surina
 contact_note: >
   anja [dot] surina [at] epfl [dot] ch
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
@@ -15,7 +15,7 @@ footer_text: >
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
 keywords: # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+icon: # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
 url: https://aanjaa.github.io # the base hostname & protocol for your site
 # baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root
@@ -255,7 +255,7 @@ display_categories: ["external-services"] # these categories will be displayed o
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Šurina]
+  last_name: [Surina]
   first_name: [Anja]
 
   style: apa

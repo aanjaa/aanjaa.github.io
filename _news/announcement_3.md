@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Selected for Forbes 30u30 in Slovenia in Science&Tech category!
+Selected for Forbes 30u30 in Slovenia in Science&Tech category.
