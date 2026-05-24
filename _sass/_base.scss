@@ -751,6 +751,13 @@ footer.sticky-bottom {
 .publications {
   margin-top: 0;
 
+  // Make bibliography entries span the full content width so they align with
+  // the About me and News sections (overrides Bootstrap's col-sm-* widths).
+  ol.bibliography > li > .row > [class*='col-'] {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
   h1 {
     color: var(--global-theme-color);
     font-size: 2rem;
