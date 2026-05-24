@@ -126,7 +126,18 @@ ninja.data = [
         {%- when "email" -%}
           {%- assign social_id = "social-email" -%}
           {%- assign social_title = "email" -%}
-          {%- capture social_url %}"mailto:{{ social[1] | encode_email }}"{% endcapture -%}
+          {%- comment -%}
+            Support both the al-folio default (`email: "address@example.com"`)
+            and the custom hash form (`email: {name: "..."}`). Without this,
+            a hash value gets stringified through Liquid and produces
+            unescaped `"` characters in the JS string, breaking search-data.js
+            with `Uncaught SyntaxError: Invalid or unexpected token`.
+          {%- endcomment -%}
+          {%- if social[1].name -%}
+            {%- capture social_url %}"mailto:{{ social[1].name | encode_email }}"{% endcapture -%}
+          {%- else -%}
+            {%- capture social_url %}"mailto:{{ social[1] | encode_email }}"{% endcapture -%}
+          {%- endif -%}
         {%- when "facebook_id" -%}
           {%- assign social_id = "social-facebook" -%}
           {%- assign social_title = "Facebook" -%}

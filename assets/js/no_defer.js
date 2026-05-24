@@ -1,7 +1,11 @@
 // add bootstrap classes to tables
 $(document).ready(function () {
+  // `determineComputedTheme` lives in theme.js, which is only loaded when
+  // `site.enable_darkmode` is true. Fall back to "light" otherwise so this
+  // jQuery `ready` handler doesn't throw and abort the rest of the page setup.
+  const currentTheme = typeof determineComputedTheme === "function" ? determineComputedTheme() : "light";
   $("table").each(function () {
-    if (determineComputedTheme() == "dark") {
+    if (currentTheme == "dark") {
       $(this).addClass("table-dark");
     } else {
       $(this).removeClass("table-dark");

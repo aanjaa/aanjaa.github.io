@@ -51,6 +51,6 @@ ninja.data = [{
         title: 'email',
         section: 'Socials',
         handler: () => {
-          window.open("mailto:{"%6E%61%6D%65" => "%63%6F%6E%74%61%63%74 [%61%74] %61%6E%6A%61%73%75%72%69%6E%61.%63%6F%6D"}", "_blank");
+          window.open("mailto:%63%6F%6E%74%61%63%74 [%61%74] %61%6E%6A%61%73%75%72%69%6E%61.%63%6F%6D", "_blank");
         },
       },];

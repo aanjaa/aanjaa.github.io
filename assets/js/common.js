@@ -31,7 +31,10 @@ $(document).ready(function () {
   cssLink.rel = "stylesheet";
   cssLink.type = "text/css";
 
-  let jupyterTheme = determineComputedTheme();
+  // `determineComputedTheme` lives in theme.js, which is only loaded when
+  // `site.enable_darkmode` is true. Fall back to "light" otherwise so the
+  // popover/TOC setup below this point still runs.
+  let jupyterTheme = typeof determineComputedTheme === "function" ? determineComputedTheme() : "light";
 
   $(".jupyter-notebook-iframe-container iframe").each(function () {
     $(this).contents().find("head").append(cssLink);
