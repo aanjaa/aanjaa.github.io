@@ -52,23 +52,35 @@
 {% endif %}
 
 {% if site.serve_og_meta %}
+  {% if page.og_image %}
+    {% assign og_image_url = page.og_image | absolute_url %}
+  {% elsif site.og_image %}
+    {% assign og_image_url = site.og_image | absolute_url %}
+  {% endif %}
+
   <!-- OpenGraph -->
   <meta property="og:site_name" content="{{ title }}">
-  <meta property="og:type" content="{% if is_blog_post %}article{% else %}website{% endif %}">
-  <meta property="og:title" content="{% if page.title %}{{ title }} | {{ page.title }}{% else %}{{ title }}{% endif %}">
-  <meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url | remove_first: 'index.html' }}">
-  <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-  {% if page.og_image or site.og_image %}
-    <meta property="og:image" content="{% if page.og_image %}{{ page.og_image }}{% else %}{{ site.og_image }}{% endif %}">
+  <meta property="og:type" content="{% if is_blog_post %}article{% elsif page.url == '/' %}profile{% else %}website{% endif %}">
+  <meta property="og:title" content="{% if page.title and page.url != '/' %}{{ page.title }} | {{ title }}{% else %}{{ title }}{% endif %}">
+  <meta property="og:url" content="{{ page.url | replace:'index.html','' | absolute_url }}">
+  <meta property="og:description" content="{% if page.description %}{{ page.description | strip_newlines | strip }}{% else %}{{ site.description | strip_newlines | strip }}{% endif %}">
+  {% if og_image_url %}
+    <meta property="og:image" content="{{ og_image_url }}">
+    <meta property="og:image:alt" content="{{ author_name }}">
   {% endif %}
   <meta property="og:locale" content="{{ site.lang }}">
+  {% if page.url == '/' %}
+    <meta property="profile:first_name" content="{{ site.first_name }}">
+    <meta property="profile:last_name" content="{{ site.last_name }}">
+  {% endif %}
 
   <!-- Twitter card -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ title }}{% endif %}">
-  <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-  {% if page.og_image or site.og_image %}
-    <meta name="twitter:image" content="{% if page.og_image %}{{ page.og_image }}{% else %}{{ site.og_image }}{% endif %}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% if page.title and page.url != '/' %}{{ page.title }}{% else %}{{ title }}{% endif %}">
+  <meta name="twitter:description" content="{% if page.description %}{{ page.description | strip_newlines | strip }}{% else %}{{ site.description | strip_newlines | strip }}{% endif %}">
+  {% if og_image_url %}
+    <meta name="twitter:image" content="{{ og_image_url }}">
+    <meta name="twitter:image:alt" content="{{ author_name }}">
   {% endif %}
   {% if site.x_username %}
     <meta name="twitter:site" content="@{{ site.x_username }}">
@@ -81,6 +93,10 @@
   {% comment %} Social links generator for "sameAs schema" {% endcomment %}
   {% assign sameaslinks = '' | split: ',' %}
   {% for social in site.data.socials %}
+    {% comment %} Handle simple `{key: {link: ..., name: ...}}` entries used in this site's _data/socials.yml {% endcomment %}
+    {% if social[1].link and social[0] != 'email' and social[0] != 'cv' %}
+      {% assign sameaslinks = sameaslinks | push: social[1].link %}
+    {% else %}
     {% case social[0] %}
       {% when 'acm_id' %}
         {% capture link %}https://dl.acm.org/profile/{{ social[1] }}/{% endcapture %}
@@ -219,26 +235,71 @@
         {% capture link %}https://www.zotero.org/{{ social[1] }}{% endcapture %}
         {% assign sameaslinks = sameaslinks | push: link %}
       {% else %}
-        {% assign sameaslinks = sameaslinks | push: social[1].url %}
+        {% if social[1].link %}
+          {% assign sameaslinks = sameaslinks | push: social[1].link %}
+        {% endif %}
     {% endcase %}
+    {% endif %}
   {% endfor %}
 
-  <script type="application/ld+json">
-    {
-        "author":
-        {
-            "@type": "Person",
-            "name": "{{ author_name }}"
-        },
-        "url": "{{ page.url | prepend: site.baseurl | prepend: site.url }}",
-        "@type": "{% if is_blog_post %}BlogPosting{% else %}WebSite{% endif %}",
-        "description": "{% if page.description %}{{ page.description }}{% else if site.description %}{{ site.description }}{% endif %}",
-        "headline": "{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}",
-        {% if sameaslinks != blank %}
-        "sameAs": {{ sameaslinks | jsonify }},
+  {% if page.og_image %}
+    {% assign schema_image_url = page.og_image | absolute_url %}
+  {% elsif site.og_image %}
+    {% assign schema_image_url = site.og_image | absolute_url %}
+  {% endif %}
+
+  {% capture schema_description %}{% if page.description %}{{ page.description | strip_newlines | strip }}{% elsif site.description %}{{ site.description | strip_newlines | strip }}{% endif %}{% endcapture %}
+  {% capture schema_headline %}{% if page.title and page.url != '/' %}{{ page.title }}{% else %}{{ author_name }}{% endif %}{% endcapture %}
+  {% capture schema_page_url %}{{ page.url | replace:'index.html','' | absolute_url }}{% endcapture %}
+
+  {% if page.url == '/' %}
+    {% comment %} Person schema on the homepage so Google links the page to Anja Surina as a person. {% endcomment %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": {{ author_name | jsonify }},
+        "givenName": {{ site.first_name | jsonify }},
+        "familyName": {{ site.last_name | jsonify }},
+        {% if site.middle_name %}"additionalName": {{ site.middle_name | jsonify }},{% endif %}
+        "url": {{ schema_page_url | jsonify }},
+        {% if schema_image_url %}"image": {{ schema_image_url | jsonify }},{% endif %}
+        "description": {{ schema_description | jsonify }},
+        "jobTitle": "PhD Student",
+        "affiliation": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "EPFL (\u00c9cole polytechnique f\u00e9d\u00e9rale de Lausanne)",
+            "url": "https://www.epfl.ch/"
+          }
+        ],
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "ETH Zurich", "url": "https://ethz.ch/" },
+          { "@type": "CollegeOrUniversity", "name": "University of Ljubljana", "url": "https://fe.uni-lj.si/en/" }
+        ]
+        {% if sameaslinks != blank %},
+        "sameAs": {{ sameaslinks | jsonify }}
         {% endif %}
-        "name": "{{ author_name }}",
-        "@context": "https://schema.org"
-    }
-  </script>
+      }
+    </script>
+  {% else %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "{% if is_blog_post %}BlogPosting{% else %}WebPage{% endif %}",
+        "url": {{ schema_page_url | jsonify }},
+        "headline": {{ schema_headline | jsonify }},
+        "description": {{ schema_description | jsonify }},
+        {% if schema_image_url %}"image": {{ schema_image_url | jsonify }},{% endif %}
+        "author": {
+          "@type": "Person",
+          "name": {{ author_name | jsonify }},
+          "url": {{ site.url | append: '/' | jsonify }}
+          {% if sameaslinks != blank %},
+          "sameAs": {{ sameaslinks | jsonify }}
+          {% endif %}
+        }
+      }
+    </script>
+  {% endif %}
 {% endif %}

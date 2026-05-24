@@ -1,0 +1,9 @@
+---
+# This file is processed by Jekyll so {{ site.url }} resolves to the production URL.
+permalink: /robots.txt
+sitemap: false
+---
+User-agent: *
+Allow: /
+
+Sitemap: {{ '/sitemap.xml' | absolute_url }}

@@ -7,13 +7,21 @@ first_name: Anja
 middle_name: 
 last_name: Surina
 contact_note: >
-  anja [dot] surina [at] epfl [dot] ch
+  contact [at] anjasurina [dot] com
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+  Anja Surina is a PhD student at EPFL advised by Prof. Caglar Gulcehre, working on
+  large language models (LLMs) for mathematical and scientific discovery and on the
+  nature of machine intelligence. Previously: Google DeepMind, Mila (Bengio lab),
+  Stanford (Leskovec lab), IBM Research Zurich.
 footer_text: >
-  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
-  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-keywords: # add your own keywords or leave empty
+  &copy; Anja Surina. Built with <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
+  and the <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme,
+  hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+keywords: >
+  Anja Surina, Anja Šurina, EPFL, CLAIRE Lab, Caglar Gulcehre, PhD student,
+  machine learning, large language models, LLMs, mathematical discovery,
+  scientific discovery, AI for math, AI for science, reinforcement learning,
+  evolutionary search, EvoTune, Google DeepMind, Mila, Stanford, IBM Research, ETH Zurich
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
@@ -62,9 +70,10 @@ max_width: 930px
 # -----------------------------------------------------------------------------
 # Display links to the page with a preview object on social media.
 # see https://schema.org/docs/faq.html for more information
-serve_og_meta: false # Include Open Graph meta tags in the HTML head
-serve_schema_org: false # Include Schema.org in the HTML head
-og_image: # The site-wide (default for all links) Open Graph preview image
+serve_og_meta: true # Include Open Graph meta tags in the HTML head
+serve_schema_org: true # Include Schema.org in the HTML head
+og_image: /assets/img/profile-pic.png # The site-wide (default for all links) Open Graph preview image
+x_username: AnjaSurina # Twitter/X handle (used for Twitter card attribution)
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
@@ -78,8 +87,11 @@ pirsch_analytics: # your Pirsch analytics site ID (length 32 characters)
 openpanel_analytics: # your Openpanel analytics client ID (format: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX)
 
 # For Google Search Console, see https://support.google.com/webmasters/answer/9008080?hl=en#meta_tag_verification&zippy=%2Chtml-tag
+# After verifying your site in https://search.google.com/search-console, paste the
+# `content` value of the meta tag they give you (or just the token) below, then set
+# `enable_google_verification: true` further down in this file.
 google_site_verification: # your google-site-verification ID (Google Search Console)
-bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
+bing_site_verification: # your bing-site-verification ID (Bing Webmaster)
 
 # -----------------------------------------------------------------------------
 # Blog
@@ -223,7 +235,7 @@ sass:
 
 jekyll-minifier:
   compress_javascript: false # set to false since we are using terser as the js minifier
-  exclude: ["assets/js/search/*.js"]
+  exclude: ["assets/js/search/*.js", "robots.txt"]
 
 # -----------------------------------------------------------------------------
 # Terser
@@ -317,7 +329,7 @@ filtered_bibtex_keywords:
   ]
 
 # Maximum number of authors to be shown for each publication (more authors are visible on click)
-max_author_limit: 10 # leave blank to always show all authors
+max_author_limit: # leave blank to always show all authors
 more_authors_animation_delay: 10 # more authors are revealed on click using animation; smaller delay means faster animation
 
 # Enables publication thumbnails. If disabled, none of the publications will display thumbnails, even if specified in the bib entry.
@@ -378,7 +390,7 @@ enable_bing_verification: false # enables bing site verification
 enable_masonry: true # enables automatic project cards arrangement
 enable_math: true # enables math typesetting (uses MathJax)
 enable_tooltips: false # enables automatic tooltip links generated for each section titles on pages and posts
-enable_darkmode: true # enables switching between light/dark modes
+enable_darkmode: false # enables switching between light/dark modes
 enable_navbar_social: false # enables displaying social links in the navbar on the about page
 enable_project_categories: true # enables categorization of projects into multiple categories
 enable_medium_zoom: true # enables image zoom feature (as on medium.com)
