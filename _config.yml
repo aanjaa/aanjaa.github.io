@@ -14,7 +14,7 @@ description: > # the ">" symbol means to ignore newlines until "footer_text:"
   nature of machine intelligence. Previously: Google DeepMind, Mila (Bengio lab),
   Stanford (Leskovec lab), IBM Research Zurich.
 footer_text: >
-  &copy; Anja Surina. Built with <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
+  Built with <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
   and the <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme,
   hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
 keywords: >
@@ -25,7 +25,7 @@ keywords: >
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
-url: https://aanjaa.github.io # the base hostname & protocol for your site
+url: https://anjasurina.github.io # the base hostname & protocol for your site
 # baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root
 last_updated: false # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
