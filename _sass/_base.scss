@@ -225,6 +225,10 @@ ul.task-list input[type="checkbox"] {
 .about-profile {
   width: 100%;
   order: 1;
+
+  .contact-list {
+    font-size: 1rem;
+  }
 }
 
 .about-main {
@@ -245,8 +249,8 @@ ul.task-list input[type="checkbox"] {
   }
 
   .about-profile {
-    flex: 0 0 15%;
-    max-width: 160px;
+    flex: 0 0 280px;
+    width: 280px;
     order: 2;
   }
 }
@@ -261,6 +265,11 @@ ul.task-list input[type="checkbox"] {
         display: block;
       }
     }
+  }
+
+  /* Fixed sidebar width overrides generic .profile { width: 30% } on about page */
+  .about-profile.profile {
+    width: 280px;
   }
 }
 

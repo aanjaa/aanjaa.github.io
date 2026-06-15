@@ -12,11 +12,11 @@ keywords: >
   large language models, AI for math, AI for science, mathematical discovery,
   scientific discovery, reinforcement learning, evolutionary search, EvoTune,
   Google DeepMind, Mila, Stanford, IBM Research, ETH Zurich
-og_image: /assets/img/profile-pic.png
+og_image: /assets/img/profile-pic.jpg
 # subtitle: <b>PhD student <a href='https://www.epfl.ch/labs/claire/'>@EPFL</a><b>
 profile:
   align: right
-  image: profile-pic.png
+  image: profile-pic.jpg
   image_circular: false # crops the image to make it circular
   more_info:
 publications: true # includes the full list of papers from _bibliography/papers.bib
